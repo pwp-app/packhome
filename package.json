@@ -11,6 +11,7 @@
     "core-js": "^3.6.5",
     "dayjs": "^1.8.28",
     "element-ui": "^2.4.5",
+    "markdown-it-vue": "^1.1.2",
     "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
     "vue-router": "^3.2.0"
@@ -23,7 +24,6 @@
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     "vue-cli-plugin-element": "^1.0.1",
-    "vue-markdown-loader": "^2.4.1",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [

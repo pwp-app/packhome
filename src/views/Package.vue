@@ -17,7 +17,7 @@
                         </div>
                     </el-col>
                     <el-col :span="6">
-                        
+
                     </el-col>
                 </el-row>
             </div>
@@ -27,11 +27,15 @@
 
 <script>
 import dayjs from 'dayjs';
+import MarkdownItVueLight from 'markdown-it-vue/dist/markdonw-it-vue-light.umd.min.js'
 
 const API_URL = 'https://common-api.pwp.app/v1/npm';
 
 export default {
     name: 'page.pack',
+    components: {
+        MarkdownItVueLight
+    },
     data() {
         return {
             package: {},
