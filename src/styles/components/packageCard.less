@@ -1,0 +1,29 @@
+.card-package {
+    border: 1px solid #666;
+    border-radius: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 12px 24px rgba(0,0,0,.025);
+    margin-bottom: 20px;
+    transition: 200ms;
+    &-name {
+        display: flex;
+        align-items: center;
+        color: #333;
+        letter-spacing: 0.05em;
+        font-weight: 300;
+        font-size: 1rem;
+        user-select: none;
+        span {
+            flex-grow: 1;
+        }
+        i {
+            justify-self: flex-end;
+            text-shadow: 0 4px 4px rgba(0,0,0,.0375);
+        }
+    }
+}
+
+.card-package:hover {
+    background: darken(#fff, 2.5%);
+    cursor: pointer;
+}

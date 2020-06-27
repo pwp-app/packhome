@@ -1,0 +1,41 @@
+.footer {
+    height: 64px;
+    background: #fbfbfb;
+    user-select: none;
+    position: relative;
+    &-content {
+        height: 100%;
+        line-height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    &-text {
+        font-size: 13px;
+        color: #8e8e8e;
+        flex: 1;
+        &-split {
+            margin: 0 1em;
+            border-right: 1px #999 solid;
+        }
+        div {
+            display: inline;
+        }
+        a {
+            font-size: 13px;
+            color: #8e8e8e;
+            transition: 100ms;
+        }
+        a:hover {
+            color: #6e6e6e;
+        }
+    }
+    &-icons {
+        justify-self: flex-end;
+        color: #6e6e6e;
+        transition: 100ms;
+        span:hover {
+            cursor: pointer;
+            color: #3e3e3e;
+        }
+    }
+}

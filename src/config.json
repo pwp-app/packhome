@@ -1,0 +1,19 @@
+{
+    "title": "Packages of pwp.app",
+    "copyright": "Copyright © 2020 pwp.app",
+    "github": "",
+    "packages": [
+        {
+            "name": "pwp-cli"
+        },
+        {
+            "name": "qiniu-backup"
+        },
+        {
+            "name": "gulp-qiniu-up"
+        },
+        {
+            "name": "pangu.simple"
+        }
+    ]
+}
