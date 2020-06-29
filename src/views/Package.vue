@@ -1,23 +1,26 @@
 <template>
-    <div class="page-wrapper">
+    <div class="page-wrapper" v-loading="loading">
         <div class="container page page-pack">
             <div class="page-pack-header">
                 <div class="page-pack-header-title">
                     <span>{{packageName}}</span>
                 </div>
                 <div class="page-pack-header-desc">
-                    <span></span>
+                    <span>{{currentVer ? currentVer.description : null}}</span>
                 </div>
             </div>
             <div class="page-pack-content">
                 <el-row>
                     <el-col :span="18">
-                        <div class="page-pack-readme" v-if="readme">
-
-                        </div>
+                        <div
+                            class="page-pack-readme"
+                            v-if="readme"
+                            v-html="renderedReadme"
+                            v-highlight
+                        ></div>
                     </el-col>
                     <el-col :span="6">
-
+                        
                     </el-col>
                 </el-row>
             </div>
@@ -27,15 +30,14 @@
 
 <script>
 import dayjs from 'dayjs';
-import MarkdownItVueLight from 'markdown-it-vue/dist/markdonw-it-vue-light.umd.min.js'
+import marked from 'marked';
 
-const API_URL = 'https://common-api.pwp.app/v1/npm';
+const API_URL = 'https://common-api.pwp.app/v1';
+
+dayjs.locale('zh-CN');
 
 export default {
     name: 'page.pack',
-    components: {
-        MarkdownItVueLight
-    },
     data() {
         return {
             package: {},
@@ -44,44 +46,65 @@ export default {
             weeklyDownloads: 0,
             homepage: null,
             github: {},
+            currentVer: null,
+            loading: true
         }
     },
     created() {
         // init datas
         this.packageName = this.$route.params.pack;
-        this.axios.get(`${API_URL}/registry`, {
+        this.axios.get(`${API_URL}/npm/registry`, {
             params: {
                 package: this.packageName,
             }
         }).then(res => {
-            if (res.data) {
-                this.package = res.data.data;
-                this.currentVer = this.package.versions[this.package['dist-tags'].latest];
-                // readme exists, use it
-                if (this.currentVer.readme.length > 0) {
-                    this.readme = this.currentVer.readme.length;
-                }
-                // check if github exists
-                if (this.currentVer.repository && this.currentVer.repository.type === 'git' && this.currentVer.repository.url.includes('https://github.com')) {
-                    this.github = {
-                        url: this.currentVer.repository.url.replace(/^git\+/, '').replace(/\.git$/, ''),
-                        name: this.currentVer.repository.url.replace('git+https://github.com/', '').replace(/\.git$/, '')
-                    };
-                    if (!this.readme) {
-                        // get readme from github
-
-                    }
+            if (!res.data) {
+                this.error = true;
+                return;
+            }
+            this.package = res.data.data;
+            this.currentVer = this.package.versions[this.package['dist-tags'].latest];
+            // readme exists, use it
+            if (this.currentVer.readme && this.currentVer.readme.length > 0) {
+                this.readme = this.currentVer.readme;
+            }
+            // check if github exists
+            if (this.currentVer.repository && this.currentVer.repository.type === 'git' && this.currentVer.repository.url.includes('https://github.com')) {
+                this.github = {
+                    url: this.currentVer.repository.url.replace(/^git\+/, '').replace(/\.git$/, ''),
+                    name: this.currentVer.repository.url.replace('git+https://github.com/', '').replace(/\.git$/, '')
+                };
+                if (!this.readme) {
+                    // get readme from github
+                    this.axios.get(`${API_URL}/github/readme`, {
+                        params: {
+                            repo: this.github.name
+                        }
+                    }).then(res => {
+                        if (res.data) {
+                            this.readme = res.data.data;
+                        }
+                    })
                 }
             }
+            this.loading = false
         });
-        this.axios.get(`${API_URL}/downloads`, {
-            start: dayjs().add(-1, 'week').format('YYYY-MM-DD'),
-            end: dayjs.format('YYYY-MM-DD'),
+        this.axios.get(`${API_URL}/npm/downloads`, {
+            params: {
+                start: dayjs().add(-1, 'week').format('YYYY-MM-DD'),
+                end: dayjs().format('YYYY-MM-DD'),
+                package: this.packageName,
+            }
         }).then(res => {
             if (res.data) {
                 this.weeklyDownloads = res.data.data.downloads;
             }
         });
     },
+    computed: {
+        renderedReadme() {
+            return marked(this.readme);
+        }
+    }
 }
 </script>
