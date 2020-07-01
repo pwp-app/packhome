@@ -1,6 +1,6 @@
 <template>
     <div :class="['page-wrapper', loading ? 'page-loading' : null]" v-loading="loading" v-title="packageName">
-        <div class="container page page-pack" v-if="!loading">
+        <div class="container page page-withfooter page-pack" v-if="!loading">
             <div class="page-pack-header">
                 <div class="page-pack-header-title">
                     <span>{{packageName}}</span>
