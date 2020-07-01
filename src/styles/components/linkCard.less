@@ -1,0 +1,43 @@
+.card-link {
+    border: 1px solid #666;
+    border-radius: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 12px 14px rgba(0, 0, 0, 0.025);
+    margin-bottom: 20px;
+    transition: 200ms;
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #333;
+    &-icon {
+        i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            //transform: translateY(-2px);
+            svg {
+                width: 18px;
+                height: 18px;
+            }
+            font-size: 1.125rem;
+            margin-right: 0.625rem;
+        }
+    }
+    &-text {
+        flex-grow: 1;
+        letter-spacing: 0.0325em;
+        font-weight: 300;
+        user-select: none;
+    }
+    &-go {
+        justify-self: flex-end;
+        i {
+            text-shadow: 0 4px 4px rgba(0,0,0,.0375);
+        }
+    }
+}
+
+.card-link:hover {
+    background: darken(#fff, 2.5%);
+    cursor: pointer;
+}

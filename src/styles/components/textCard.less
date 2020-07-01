@@ -1,0 +1,27 @@
+.card-text {
+    border: 1px solid #666;
+    border-radius: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.025);
+    margin-bottom: 20px;
+    transition: 200ms;
+    &-content {
+        display: flex;
+        align-items: center;
+        color: #333;
+        letter-spacing: 0.0325em;
+        font-weight: 300;
+        font-size: 0.875rem;
+        user-select: none;
+        span:first-child {
+            flex-grow: 1;
+        }
+        span:last-child {
+            display: inline-block;
+            text-align: center;
+            min-width: 14px;
+            justify-self: flex-end;
+            text-shadow: 0 4px 4px rgba(0,0,0,.0375);
+        }
+    }
+}

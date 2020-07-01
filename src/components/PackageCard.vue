@@ -1,6 +1,6 @@
 <template>
-    <div class="card-package">
-        <div class="card-package-name" @click="handleClick">
+    <div class="card-package" @click="handleClick">
+        <div class="card-package-name">
             <span>{{pack.name}}</span>
             <i class="el-icon-arrow-right"></i>
         </div>
@@ -13,7 +13,9 @@ export default {
     props: ['pack'],
     methods: {
         handleClick() {
-            this.$router.push(`/${this.pack.name}`);
+            if (this.pack && this.pack.name) {
+                this.$router.push(`/${this.pack.name}`);
+            }
         }
     }
 }
