@@ -13,12 +13,16 @@
         font-size: 13px;
         color: #8e8e8e;
         flex: 1;
-        &-split {
-            margin: 0 1em;
-            border-right: 1px #999 solid;
-        }
         div {
             display: inline;
+        }
+        div:after {
+            margin: 0 1em;
+            border-right: 1px #999 solid;
+            content: '';
+        }
+        div:last-child::after {
+            display: none;
         }
         a {
             font-size: 13px;
@@ -37,5 +41,11 @@
             cursor: pointer;
             color: #3e3e3e;
         }
+    }
+}
+
+@media(max-width: 768px) {
+    .footer-poweredby {
+        display: none;
     }
 }

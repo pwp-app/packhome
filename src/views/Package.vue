@@ -1,6 +1,6 @@
 <template>
     <div :class="['page-wrapper', loading ? 'page-loading' : null]" v-loading="loading" v-title="packageName">
-        <div class="container page page-pack">
+        <div class="container page page-pack" v-if="!loading">
             <div class="page-pack-header">
                 <div class="page-pack-header-title">
                     <span>{{packageName}}</span>
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="page-pack-content">
-                <el-row>
+                <el-row class="page-pack-content-wrapper">
                     <el-col :span="16" class="page-pack-content-left">
                         <div class="page-pack-content-header">
                             <i class="el-icon-document"></i>
@@ -37,6 +37,10 @@
                         <p v-else>No content.</p>
                     </el-col>
                     <el-col :span="8" class="page-pack-content-right">
+                        <div class="page-pack-content-header">
+                            <i class="el-icon-info"></i>
+                            <span>Info</span>
+                        </div>
                         <TextCard v-if="weeklyDownloads" class="page-pack-card" :text="'Weekly Downloads'" :secondaryText="weeklyDownloads"></TextCard>
                         <TextCard v-if="weeklyDownloads" class="page-pack-card" :text="'Last publish'" :secondaryText="lastPublish"></TextCard>
                         <LinkCard :text="packageName" :link="`https://www.npmjs.com/package/${packageName}`">
@@ -68,7 +72,7 @@
                 </el-row>
             </div>
         </div>
-        <Footer></Footer>
+        <Footer v-if="!loading"></Footer>
     </div>
 </template>
 
@@ -110,7 +114,7 @@ export default {
             homepage: null,
             keywords: null,
             currentVer: null,
-            loading: true
+            loading: true,
         }
     },
     created() {

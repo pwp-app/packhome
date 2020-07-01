@@ -60,7 +60,11 @@
             padding-right: 48px;
         }
         &-right {
-            padding-top: 72px;
+            padding-top: 44px;
+            .page-pack-content-header {
+                display: none;
+                margin-bottom: 2.5rem;
+            }
         }
         &-header {
             display: flex;
@@ -101,6 +105,36 @@
         }
         .page-pack-keyword:last-child {
             margin-right: 0px;
+        }
+    }
+}
+
+// mobile
+
+@media(max-width: 768px) {
+    .page-pack {
+        &-header {
+            &-title {
+                font-size: 2rem;
+            }
+        }
+        &-content-wrapper {
+            display: flex;
+            flex-direction: column;
+            .el-col {
+                width: 100%;
+            }
+        }
+        &-content {
+            &-left {
+                padding-right: 0;
+            }
+            &-right {
+                padding-top: 0;
+                .page-pack-content-header {
+                    display: block;
+                }
+            }
         }
     }
 }

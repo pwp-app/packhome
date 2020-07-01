@@ -1,7 +1,7 @@
 .page-home {
     &-title {
         color: #333;
-        padding-top: 96px;
+        padding-top: 72px;
         padding-bottom: 64px;
         font-size: 2.5rem;
         font-weight: 300;
@@ -11,5 +11,15 @@
     }
     &-list {
         padding-bottom: 32px;
+    }
+}
+
+@media(max-width: 768px) {
+    .page-home {
+        &-title {
+            padding-top: 48px;
+            font-size: 1.5rem;
+            padding-bottom: 32px;
+        }
     }
 }

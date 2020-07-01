@@ -5,7 +5,6 @@
                 <div class="footer-copyright" v-if="config.copyright">
                     <span>{{config.copyright}}</span>
                 </div>
-                <div class="footer-text-split" v-if="config.copyright"></div>
                 <div class="footer-poweredby">
                     <span>Powered by PackHome</span>
                 </div>
