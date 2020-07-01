@@ -4,7 +4,7 @@
             <slot name="icon"></slot>
         </div>
         <div class="card-link-text">
-            {{text}}
+            <span>{{text}}</span>
         </div>
         <div class="card-link-go">
             <i class="el-icon-arrow-right"></i>

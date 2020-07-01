@@ -5,6 +5,7 @@
     box-shadow: 0 12px 14px rgba(0, 0, 0, 0.025);
     margin-bottom: 20px;
     transition: 200ms;
+    position: relative;
     display: flex;
     align-items: center;
     font-size: 0.875rem;
@@ -28,6 +29,15 @@
         letter-spacing: 0.0325em;
         font-weight: 300;
         user-select: none;
+        display: flex;
+        max-width: calc(100% - 44px);
+        span {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            word-break:keep-all;
+        }
     }
     &-go {
         justify-self: flex-end;
