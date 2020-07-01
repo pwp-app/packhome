@@ -7,8 +7,13 @@
 </template>
 
 <script>
+import config from './config.json';
+
 export default {
     name: 'app',
+    created() {
+        document.title = config.title;
+    }
 }
 </script>
 

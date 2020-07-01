@@ -1,5 +1,5 @@
 <template>
-    <div class="page-wrapper">
+    <div class="page-wrapper" v-title="config.title">
         <div class="container page page-withfooter page-home">
             <div class="page-home-title">
                 {{title}}

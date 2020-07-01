@@ -12,6 +12,12 @@ Vue.config.productionTip = false
 Vue.use(VueAxios, axios);
 Vue.use(highlight);
 
+Vue.directive('title', {
+    inserted: (el, binding) => {
+        document.title = binding.value;
+    }
+});
+
 new Vue({
     router,
     render: h => h(App)

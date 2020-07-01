@@ -1,5 +1,5 @@
 <template>
-    <div :class="['page-wrapper', loading ? 'page-loading' : null]" v-loading="loading">
+    <div :class="['page-wrapper', loading ? 'page-loading' : null]" v-loading="loading" v-title="packageName">
         <div class="container page page-pack">
             <div class="page-pack-header">
                 <div class="page-pack-header-title">
@@ -193,7 +193,7 @@ export default {
             this.$router.push('/');
         },
         handleTagClick(e) {
-            const keyword = e.currentTarget.getAttribute('data-keyword');
+            const keyword = e.currentTarget.dataset.keyword;
             window.open(`https://www.npmjs.com/search?q=keywords:${keyword}`);
         }
     }
