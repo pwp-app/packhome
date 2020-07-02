@@ -16,18 +16,19 @@
         div {
             display: inline;
         }
-        div:after {
+        div:before {
             margin: 0 1em;
             border-right: 1px #999 solid;
             content: '';
         }
-        div:last-child::after {
+        div:first-child::before {
             display: none;
         }
         a {
             font-size: 13px;
             color: #8e8e8e;
             transition: 100ms;
+            text-decoration: none;
         }
         a:hover {
             color: #6e6e6e;
@@ -46,6 +47,6 @@
 
 @media(max-width: 768px) {
     .footer-poweredby {
-        display: none;
+        display: none !important;
     }
 }
