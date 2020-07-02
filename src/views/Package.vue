@@ -168,6 +168,8 @@ export default {
             if (this.readme) {
                 this.loading = false;
             }
+        }, () => {
+            this.error = true;
         });
         this.axios.get(`${API_URL}/npm/downloads`, {
             params: {
