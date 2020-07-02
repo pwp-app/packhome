@@ -1,9 +1,8 @@
 <div align="center"><img src="http://img.backrunner.top/pwp_official/packhome.png" width="96"/><h1>Packhome</h1></div>
 
 ## Overview
-```
+
 Packhome is an out-of-the-box project which allows you build a npm package homepage (focus on indivitual developer or small organization) quickly.
-```
 
 ## Usage
 
