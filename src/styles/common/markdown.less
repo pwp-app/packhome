@@ -1,45 +1,53 @@
-.markdown {
-    h1, h2, h3, h4, h5, p, span, a, li, tr, th, td {
-        color: #333;
-    }
-    p, span, a {
-        font-size: 0.875rem;
-        letter-spacing: 0.05em;
-        margin: 1.125rem 0;
-    }
-    h1 {
-        font-size: 1.5rem;
-        letter-spacing: 0.075rem;
-        margin: 1.5rem 0;
-    }
-    h2 {
-        font-size: 1.375rem;
-        letter-spacing: 0.0675rem;
-        margin: 1.375rem 0;
-    }
-    h3, h4, h5 {
-        letter-spacing: 0.05rem;
-        margin: 1.25rem 0;
-    }
-    h3 {
-        font-size: 1.25rem;
-    }
-    h4 {
-        font-size: 1.175rem;
-    }
-    h5 {
-        font-size: 1.125rem;
-    }
-    li {
-        font-size: 0.875rem;
-        margin: 1rem 0;
+.markdown > h1, .markdown > h2, .markdown > h3, .markdown > h4, .markdown > h5, .markdown > p, .markdown > span, .markdown > a, .markdown > ul, .markdown tr, .markdown th, .markdown td {
+    color: #333;
+}
+
+.markdown > p, .markdown > span, .markdown > a {
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    margin: 1.125rem 0;
+    line-height: 28px;
+}
+.markdown > h1 {
+    font-size: 1.5rem;
+    letter-spacing: 0.075rem;
+    margin: 1.5rem 0;
+}
+.markdown > h2 {
+    font-size: 1.375rem;
+    letter-spacing: 0.0675rem;
+    margin: 1.375rem 0;
+}
+.markdown > h3, h4, h5 {
+    letter-spacing: 0.05rem;
+    margin: 1.25rem 0;
+}
+.markdown > h3 {
+    font-size: 1.25rem;
+}
+.markdown > h4 {
+    font-size: 1.175rem;
+}
+.markdown > h5 {
+    font-size: 1.125rem;
+}
+.markdown > ul > li {
+    font-size: 0.875rem;
+    margin: 1rem 0;
+}
+
+.hljs {
+    font-size: 13px;
+    span {
+        font-size: 13px;
     }
 }
+
 
 // mobile
 
 @media(max-width: 768px) {
-    h1, h2, h3, h4, h5 {
+    .markdown > h1, h2, h3, h4, h5 {
         margin: 1rem 0 !important;
     }
 }
