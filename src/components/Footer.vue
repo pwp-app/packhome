@@ -3,7 +3,7 @@
         <div class="container footer-content">
             <div class="footer-text">
                 <div class="footer-copyright" v-if="config.copyright">
-                    <span>{{config.copyright}}</span>
+                    <span v-html="config.copyright"></span>
                 </div>
                 <div class="footer-poweredby" v-if="!config.hidePoweredby">
                     <span>Powered by PackHome</span>
