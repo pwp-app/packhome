@@ -1,4 +1,4 @@
-<div align="center"><img src="http://img.backrunner.top/pwp_official/packhome.png" width="96"/><p style="font-size: 28px">Packhome</p></div>
+<div align="center"><img src="http://img.backrunner.top/pwp_official/packhome.png" width="96"/><h2>Packhome</h2></div>
 
 ## Overview
 
