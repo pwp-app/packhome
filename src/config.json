@@ -1,6 +1,7 @@
 {
     "title": "Packages of pwp.app",
     "copyright": "Copyright © 2020 pwp.app",
+    "hidePoweredby": false,
     "github": "",
     "packages": [
         {
